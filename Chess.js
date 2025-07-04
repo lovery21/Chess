@@ -13,14 +13,24 @@ return target && target.color !==color;
 
     }
 
-      // Convertir letra en número para movernos en columnas
+      // Converce letter in number to move in columns
     const colIndex=collIndexOf(col);
     let moves=[];
 
     //Pawn movement
     if(part === "pawn"){
         const oneStep=[col,row+1];
+        // Check if the next step is not occupied
         if(!isOccupied(oneStep)){
             moves.push(oneStep);
         }
+}
+//first move double step
+if(row===2){
+    const twoSteps=[col.row+2];
+    if(!isOccupied(twoSteps)){
+        moves.push(twoSteps);
+    }
+}
+
 }
