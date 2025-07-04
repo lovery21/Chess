@@ -14,7 +14,7 @@ function move({ part, position }, allPieces = []) {
     }
 
     // Converce letter in number to move in columns
-    const colIndex = collIndexOf(col);
+const colIndex = colLetters.indexOf(col);
     let moves = [];
 
     //Pawn movement
@@ -27,7 +27,7 @@ function move({ part, position }, allPieces = []) {
     
     //first move double step
     if (row === 2) {
-        const twoSteps = [col.row + 2];
+        const twoSteps = [col,row + 2];
         if (!isOccupied(twoSteps)) {
             moves.push(twoSteps);
         }
@@ -44,4 +44,27 @@ function move({ part, position }, allPieces = []) {
     }
 
 }
+
+if(part==="horse"){
+    const horeseMoves=[
+       [colIndex + 1, row + 2],
+      [colIndex + 2, row + 1],
+      [colIndex + 2, row - 1],
+      [colIndex + 1, row - 2],
+      [colIndex - 1, row - 2],
+      [colIndex - 2, row - 1],
+      [colIndex - 2, row + 1],
+      [colIndex - 1, row + 2],
+    ]
+       for (let [c, r] of knightMoves) {
+      if (c >= 0 && c < 8 && r >= 1 && r <= 8) {
+        const pos = [colLetters[c], r];
+        if (!isOccupied(pos) || isEnemy(pos)) {
+          moves.push(pos);
+        }
+      }
+    }s
+}
+
+
 }
