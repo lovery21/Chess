@@ -16,4 +16,11 @@ return target && target.color !==color;
       // Convertir letra en número para movernos en columnas
     const colIndex=collIndexOf(col);
     let moves=[];
+
+    //Pawn movement
+    if(part === "pawn"){
+        const oneStep=[col,row+1];
+        if(!isOccupied(oneStep)){
+            moves.push(oneStep);
+        }
 }
