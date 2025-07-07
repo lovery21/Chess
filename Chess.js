@@ -67,9 +67,17 @@ if(part==="horse"){
       [colIndex - 2, row - 1],
       [colIndex - 2, row + 1],
       [colIndex - 1, row + 2],
-    ]
-      
+    ];
+    for (let[c,r] of horeseMoves) {
+        if (c >= 0 && c < colLetters.length && r >= 1 && r <= 8) {
+            const movePosition = [colLetters[c], r];
+            if (!isOccupied(movePosition) || enemiesPieces(movePosition, "white")) {
+                moves.push(movePosition);
+            }
+        }
+    }
 }
 
  return moves;
+
 }
