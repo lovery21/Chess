@@ -2,7 +2,7 @@ function table() {
     const colLetters = "ABCDEFGH";
     const table = [];
     for (let row = 1; row <= 8; row++) {
-        for (let col = 0; col < colLetters.length; col++) { // Corregido
+        for (let col = 0; col < colLetters.length; col++) { 
             table.push([colLetters[col], row]);
         }
     }
@@ -10,7 +10,7 @@ function table() {
 }
 const tableData = table();
 
-function move({ part, position, color }, allPieces = []) { // Corregido
+function move({ part, position, color }, allPieces = []) { 
     const [col, row] = position;
     const colLetters = "ABCDEFGH";
 
@@ -94,7 +94,7 @@ function move({ part, position, color }, allPieces = []) { // Corregido
 const pices = [
     { part: "pawn", position: ["A", 2], color: "white" },
     { part: "pawn", position: ["B", 2], color: "white" },
-    { part: "pawn", position: ["C", 2], color: "white" }, // Corregido espacio extra
+    { part: "pawn", position: ["C", 2], color: "white" }, 
 ];
 
 console.log(move({ part: "pawn", position: ["A", 2], color: "white" }, pices));
