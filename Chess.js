@@ -1,3 +1,15 @@
+function table() {
+    const colLetters = "ABCDEFGH";
+    const table = [];
+    for (let row= 1; row <= 8; row++) {
+        for(let col =0;col<=colLetters.length;col++){
+            table.push([colLetters[col], row]);
+    }
+}
+return table;
+}
+const tableData = table();
+
 function move({ part, position }, allPieces = []) {
     const [col, row] = position;
     const colLetters = "ABCDEFGH";
@@ -44,7 +56,7 @@ const colIndex = colLetters.indexOf(col);
     }
 
 }
-
+//horse movement
 if(part==="horse"){
     const horeseMoves=[
        [colIndex + 1, row + 2],
@@ -56,15 +68,8 @@ if(part==="horse"){
       [colIndex - 2, row + 1],
       [colIndex - 1, row + 2],
     ]
-       for (let [c, r] of knightMoves) {
-      if (c >= 0 && c < 8 && r >= 1 && r <= 8) {
-        const pos = [colLetters[c], r];
-        if (!isOccupied(pos) || isEnemy(pos)) {
-          moves.push(pos);
-        }
-      }
-    }s
+      
 }
 
-
+ return moves;
 }
